@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseTrack SaaS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">PulseTrack</p>
+        <h1>Track website performance in one clean dashboard</h1>
+        <p>
+          Add your websites, monitor core speed metrics, and quickly spot regressions
+          before your users do.
+        </p>
+      </div>
+      <button id="seed-demo" class="btn secondary">Load Demo Data</button>
+    </header>
+
+    <main class="grid">
+      <section class="card metrics">
+        <h2>Portfolio Health</h2>
+        <div class="metric-row">
+          <article>
+            <h3 id="avg-score">0</h3>
+            <p>Avg Performance Score</p>
+          </article>
+          <article>
+            <h3 id="fast-sites">0</h3>
+            <p>Sites Above 90</p>
+          </article>
+          <article>
+            <h3 id="alerts">0</h3>
+            <p>Sites Needing Attention</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Add Website</h2>
+        <form id="site-form">
+          <label>
+            Website URL
+            <input id="url" type="url" placeholder="https://example.com" required />
+          </label>
+          <div class="two-col">
+            <label>
+              Performance Score (0-100)
+              <input id="score" type="number" min="0" max="100" required />
+            </label>
+            <label>
+              Uptime (%)
+              <input id="uptime" type="number" min="0" max="100" step="0.01" required />
+            </label>
+          </div>
+          <label>
+            Response Time (ms)
+            <input id="response-time" type="number" min="0" required />
+          </label>
+          <button class="btn" type="submit">Save Website</button>
+        </form>
+      </section>
+
+      <section class="card table-card">
+        <div class="table-header">
+          <h2>Tracked Websites</h2>
+          <button id="clear-all" class="btn danger">Clear All</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Website</th>
+              <th>Score</th>
+              <th>Uptime</th>
+              <th>Response</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="site-table-body"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <template id="row-template">
+      <tr>
+        <td class="site"></td>
+        <td class="score"></td>
+        <td class="uptime"></td>
+        <td class="response"></td>
+        <td><span class="pill"></span></td>
+      </tr>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
